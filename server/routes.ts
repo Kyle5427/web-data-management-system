@@ -68,30 +68,5 @@ export async function registerRoutes(
     res.sendStatus(204);
   });
 
-  // Seed data
-  const existingProducts = await storage.getProducts();
-  if (existingProducts.length === 0) {
-    await storage.createProduct({
-      name: "Premium Wireless Headphones",
-      description: "High-fidelity audio with active noise cancellation and 30-hour battery life.",
-      price: 29999 // $299.99
-    });
-    await storage.createProduct({
-      name: "Ergonomic Mechanical Keyboard",
-      description: "Customizable RGB backlighting with hot-swappable switches for peak performance.",
-      price: 14950 // $149.50
-    });
-    await storage.createProduct({
-      name: "4K Ultra HD Monitor",
-      description: "27-inch IPS display with 144Hz refresh rate and HDR support.",
-      price: 44900 // $449.00
-    });
-    await storage.createProduct({
-      name: "Smart Home Hub",
-      description: "Control all your smart devices from one central voice-activated unit.",
-      price: 8999 // $89.99
-    });
-  }
-
   return httpServer;
 }
